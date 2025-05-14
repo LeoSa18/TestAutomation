@@ -43,7 +43,6 @@ test('Log in', async({page}) => {
 
     //Hacer click en ok
     await page.locator("body > div.sweet-alert.showSweetAlert.visible > div.sa-button-container > div > button").click();
-    await page.waitForTimeout(5000);
 })
 
 

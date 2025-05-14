@@ -1,5 +1,50 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  // Recording...
+  await page.goto('https://www.demoblaze.com/cart.html');
+  await page.getByRole('link', { name: 'Home (current)' }).click();
+  await page.getByRole('link', { name: 'Log in' }).click();
+  await page.locator('#loginusername').click();
+  await page.locator('#loginusername').press('CapsLock');
+  await page.locator('#loginusername').fill('L');
+  await page.locator('#loginusername').press('CapsLock');
+  await page.locator('#loginusername').fill('Leo');
+  await page.locator('#loginusername').press('CapsLock');
+  await page.locator('#loginusername').fill('LeoI');
+  await page.locator('#loginusername').press('CapsLock');
+  await page.locator('#loginusername').fill('LeoInter');
+  await page.locator('#loginpassword').click();
+  await page.locator('#loginpassword').fill('test');
+  await page.getByRole('button', { name: 'Log in' }).click();
+  await page.getByRole('link', { name: 'Samsung galaxy s6' }).click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.dismiss().catch(() => {});
+  });
+  await page.getByRole('link', { name: 'Add to cart' }).click();
+  await page.getByRole('link', { name: 'Home (current)' }).click();
+  await page.getByRole('link', { name: 'Nokia lumia' }).click();
+  page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.dismiss().catch(() => {});
+  });
+  await page.getByRole('link', { name: 'Add to cart' }).click();
+  await page.getByRole('link', { name: 'Cart', exact: true }).click();
+  await page.getByRole('button', { name: 'Place Order' }).click();
+  await page.getByRole('textbox', { name: 'Total: 1180 Name:' }).click();
+  await page.getByRole('textbox', { name: 'Total: 1180 Name:' }).fill('luciano');
+  await page.getByRole('textbox', { name: 'Country:' }).click();
+  await page.getByRole('textbox', { name: 'Country:' }).fill('argentina');
+  await page.getByRole('textbox', { name: 'City:' }).click();
+  await page.getByRole('textbox', { name: 'City:' }).fill('cba');
+  await page.getByLabel('Place order').locator('form div').filter({ hasText: 'Credit card:' }).click();
+  await page.getByRole('textbox', { name: 'Credit card:' }).click();
+  await page.getByRole('textbox', { name: 'Credit card:' }).fill('1234567890');
+  await page.getByRole('textbox', { name: 'Month:' }).click();
+  await page.getByRole('textbox', { name: 'Month:' }).fill('12');
+  await page.getByRole('textbox', { name: 'Year:' }).click();
+  await page.getByRole('textbox', { name: 'Year:' }).fill('2040');
+  await page.getByRole('button', { name: 'Purchase' }).click();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'OK' }).click();
 });
