@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+//Realizar los cabios para escribir este test en BDD
 test('test', async ({ page }) => {
   await page.goto('https://www.demoblaze.com/cart.html');
   await page.getByRole('link', { name: 'Home (current)' }).click();

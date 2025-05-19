@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:chrome": "cross-env BROWSER=chromium npx cucumber-js",
+    "test:firefox": "cross-env BROWSER=firefox npx cucumber-js",
+    "test:webkit": "cross-env BROWSER=webkit npx cucumber-js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -12,6 +16,8 @@
     "@cucumber/cucumber": "^11.2.0",
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.15.3",
+    "allure-playwright": "^3.2.2",
+    "cross-env": "^7.0.3",
     "playwright-cucumber-steps": "^0.0.1"
   }
 }
